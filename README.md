@@ -1,1 +1,25 @@
-# Location-link
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share Location</title>
+</head>
+<body>
+  <h3>Tap to Share Location</h3>
+  <button onclick="getLocation()">Allow Location</button>
+  <p id="result"></p>
+
+  <script>
+    function getLocation() {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          document.getElementById("result").innerHTML =
+            `Latitude: ${pos.coords.latitude}<br>
+             Longitude: ${pos.coords.longitude}`;
+        },
+        () => alert("Location permission denied")
+      );
+    }
+  </script>
+</body>
+</html>
+
